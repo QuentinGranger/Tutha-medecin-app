@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from './page.module.css';
+import { signOut } from 'next-auth/react';
 
 export default function ChoixProfil() {
   const { data: session, status } = useSession();
@@ -85,6 +86,12 @@ export default function ChoixProfil() {
 
   return (
     <div className={styles.container}>
+      <button 
+        onClick={() => signOut({ callbackUrl: '/' })}
+        style={{ position: 'absolute', top: 10, right: 10, padding: '8px 16px', backgroundColor: '#f3f4f6', border: '1px solid #d1d5db', borderRadius: '4px', cursor: 'pointer' }}
+      >
+        Déconnexion (Test)
+      </button>
       <div className={styles.header}>
         <h1 className={styles.title}>
           Avant tout, parlons un peu de{' '}

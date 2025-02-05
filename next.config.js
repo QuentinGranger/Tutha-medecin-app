@@ -13,6 +13,7 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    unoptimized: true, // Désactiver l'optimisation des images pour le développement
   },
   webpack: (config) => {
     const rules = config.module.rules
@@ -20,19 +21,21 @@ const nextConfig = {
       .oneOf.filter((rule) => Array.isArray(rule.use));
 
     rules.forEach((rule) => {
-      rule.use = rule.use.map((moduleLoader) => {
+      rule.use.forEach((moduleLoader) => {
         if (
-          moduleLoader.loader?.includes('postcss-loader') ||
-          moduleLoader.loader?.includes('tailwindcss')
+          moduleLoader.loader?.includes('next-image-loader') ||
+          moduleLoader.loader?.includes('next/dist/build/webpack/loaders/next-image-loader')
         ) {
-          return false;
+          moduleLoader.options = {
+            ...moduleLoader.options,
+            unoptimized: true,
+          };
         }
-        return moduleLoader;
-      }).filter(Boolean);
+      });
     });
 
     return config;
-  }
+  },
 };
 
 module.exports = nextConfig;

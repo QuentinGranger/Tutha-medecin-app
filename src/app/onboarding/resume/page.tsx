@@ -6,6 +6,7 @@ import styles from './page.module.css';
 import PersonalInfoEdit from './components/PersonalInfoEdit';
 import ProfessionalInfoEdit from './components/ProfessionalInfoEdit';
 import toast from 'react-hot-toast';
+import { signIn, signOut } from 'next-auth/react';
 
 interface UserInfo {
   first_name: string;
@@ -102,6 +103,12 @@ export default function ResumePage() {
 
   return (
     <div className={styles.container}>
+      <button 
+        onClick={() => signOut({ callbackUrl: '/' })}
+        style={{ position: 'absolute', top: 10, right: 10, padding: '8px 16px', backgroundColor: '#f3f4f6', border: '1px solid #d1d5db', borderRadius: '4px', cursor: 'pointer' }}
+      >
+        Déconnexion (Test)
+      </button>
       <h1 className={styles.title}>
         <span className={styles.gradientText}>Résumé de vos informations</span>
       </h1>
@@ -265,13 +272,40 @@ export default function ResumePage() {
       <div className={styles.actions}>
         <button
           className={styles.submitButton}
-          onClick={() => {
-            // Marquer l'onboarding comme terminé
-            fetch('/api/user/complete-onboarding', {
-              method: 'POST',
-            }).then(() => {
-              router.push('/dashboard');
-            });
+          onClick={async () => {
+            try {
+              const response = await fetch('/api/user/complete-onboarding', {
+                method: 'POST',
+              });
+
+              if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.message || 'Une erreur est survenue');
+              }
+
+              const data = await response.json();
+              
+              if (!data.user?.onboarding_completed) {
+                throw new Error('Erreur lors de la mise à jour du statut d\'onboarding');
+              }
+
+              toast.success('Inscription terminée avec succès !');
+              
+              // Rafraîchir la session avec les nouvelles données
+              await signIn('credentials', {
+                redirect: false,
+                email: userInfo?.email,
+                password: 'current'
+              });
+
+              // Rediriger vers le dashboard après un court délai
+              setTimeout(() => {
+                window.location.replace('/dashboard');
+              }, 1000);
+            } catch (error) {
+              console.error('Erreur lors de la finalisation de l\'inscription:', error);
+              toast.error('Une erreur est survenue lors de la finalisation de l\'inscription');
+            }
           }}
         >
           Terminer l'inscription

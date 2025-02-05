@@ -1,0 +1,112 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: #f3f4f6;
+}
+
+.header {
+  padding: 30px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+.sport {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.content {
+  padding: 30px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.25rem;
+  color: #374151;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.medicalHistory {
+  background-color: #f9fafb;
+  padding: 15px;
+  border-radius: 6px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0;
+}

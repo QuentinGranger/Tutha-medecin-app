@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 import styles from './AuthForms.module.css';
 
 export default function RegisterForm() {
@@ -55,6 +56,7 @@ export default function RegisterForm() {
         return;
       }
 
+      // Rediriger vers la page de connexion avec un message de succès
       router.push('/?registered=true');
     } catch (error) {
       console.error('Erreur lors de l\'inscription:', error);

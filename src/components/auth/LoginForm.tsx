@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -14,6 +14,14 @@ export default function LoginForm() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('registered') === 'true') {
+      setSuccessMessage('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,6 +55,11 @@ export default function LoginForm() {
         {error && (
           <div className={styles.error}>
             {error}
+          </div>
+        )}
+        {successMessage && (
+          <div className={styles.success}>
+            {successMessage}
           </div>
         )}
         

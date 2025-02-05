@@ -9,7 +9,12 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
 
   if (session) {
-    redirect('/dashboard');
+    // @ts-ignore
+    if (!session.user.onboarding_completed) {
+      redirect('/choix-profil');
+    } else {
+      redirect('/dashboard');
+    }
   }
 
   return (
