@@ -1,0 +1,265 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #001524;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: #001524;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebarTop {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.logo {
+  padding: 0.5rem;
+}
+
+.mainNav, .bottomNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  background: rgba(255, 114, 28, 0.1);
+  color: #FF721C;
+}
+
+.navLink.active {
+  background: linear-gradient(135deg, rgba(255, 114, 28, 0.2) 0%, rgba(255, 155, 92, 0.2) 100%);
+  color: #FF721C;
+}
+
+.icon {
+  font-size: 1.25rem;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 280px;
+  background-color: #001524;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.searchBar {
+  flex: 1;
+  max-width: 400px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 0.9rem;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #FF721C;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.notifications {
+  position: relative;
+  cursor: pointer;
+}
+
+.notificationIcon {
+  font-size: 1.25rem;
+  color: white;
+}
+
+.notificationBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #FF721C;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: 10px;
+  border: 2px solid #001524;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 114, 28, 0.3);
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.userRole {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+}
+
+.dashboardContent {
+  padding: 2rem;
+  color: white;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.searchBar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.patientGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.patientCard {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.patientInfo {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.value {
+  color: #333;
+  font-weight: 500;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.statusStable {
+  background-color: #22c55e;
+}
+
+.statusSurveillance {
+  background-color: #f59e0b;
+}
+
+.statusCritical {
+  background-color: #ef4444;
+}
+
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badgeStable {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badgeSurveillance {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badgeCritical {
+  background-color: #fee2e2;
+  color: #991b1b;
+}

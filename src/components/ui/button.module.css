@@ -1,0 +1,100 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 114, 28, 0.5);
+}
+
+.primary {
+  background: var(--accent-gradient);
+  color: white;
+}
+
+.primary:hover {
+  background: var(--accent-gradient-reverse);
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.outline {
+  background: transparent;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.outline:hover {
+  background: rgba(255, 114, 28, 0.1);
+}
+
+.ghost {
+  background: transparent;
+  color: white;
+}
+
+.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.destructive {
+  background: #ef4444;
+  color: white;
+}
+
+.destructive:hover {
+  background: #dc2626;
+}
+
+.link {
+  background: transparent;
+  color: var(--accent-color);
+  padding: 0;
+  height: auto;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.withIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}

@@ -1,0 +1,37 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  caption-side: bottom;
+}
+
+.header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerCell {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+.row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s;
+}
+
+.row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.cell {
+  padding: 0.75rem;
+  color: white;
+}
+
+.caption {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}

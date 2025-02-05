@@ -1,0 +1,1728 @@
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+ 
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+}
+
+.servicesSection {
+  margin-bottom: 3rem;
+}
+
+.servicesSection h2 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.serviceCard {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  color: white !important;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.serviceCard h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.serviceCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--input-focus-border);
+}
+
+.serviceCard.selected {
+  border-color: var(--accent-color);
+  background: rgba(255, 114, 28, 0.1);
+}
+
+.serviceCard.custom {
+  border-style: dashed;
+}
+
+.addServiceButton {
+  background: var(--card-bg);
+  border: 2px dashed var(--input-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.addServiceButton:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.businessHoursSection {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.businessHoursSection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.addressSection {
+  background: transparent;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.addressContainer {
+  background: transparent;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.addressInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: transparent;
+  border-radius: 1rem;
+}
+
+.addressText {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.addressForm {
+  display: grid;
+  gap: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 0;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.9rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--input-border);
+  color: white;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.bottomActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.primaryButton {
+  composes: button;
+  background: var(--accent-gradient);
+  color: white;
+  min-width: 150px;
+}
+
+.primaryButton:hover {
+  background: var(--accent-gradient-reverse);
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondaryButton {
+  composes: button;
+  background: var(--input-bg);
+  color: white;
+  border: 1px solid var(--input-border);
+}
+
+.secondaryButton:hover {
+  border-color: var(--accent-color);
+  background: rgba(255, 114, 28, 0.1);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  background: var(--card-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+}
+
+.modalHeader {
+  margin-bottom: 1.5rem;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.modalContent {
+  margin-bottom: 1.5rem;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.bottomMessage {
+  text-align: center;
+  color: #ff4444;
+  margin-top: 1rem;
+}
+
+/* Services */
+.servicesWrapper {
+  position: relative;
+  padding: 0 3rem;
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255, 114, 28, 0.9);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scrollButton:hover {
+  background: rgba(255, 114, 28, 1);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.scrollButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.scrollButton svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.scrollLeft {
+  left: 0;
+}
+
+.scrollRight {
+  right: 0;
+}
+
+.servicesContainer {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+}
+
+.servicesContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.serviceCard {
+  flex: 0 0 300px;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.serviceContent {
+  position: relative;
+  z-index: 1;
+}
+
+.serviceCard:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 114, 28, 0.3);
+}
+
+.serviceCard.selected {
+  background-color: rgba(255, 114, 28, 0.15);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(255, 114, 28, 0.25);
+}
+
+.checkmark {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.checkmark svg {
+  width: 24px;
+  height: 24px;
+}
+
+.serviceCard h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  padding-right: 2.5rem;
+}
+
+.serviceCard p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.serviceDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.serviceDetails .inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.serviceDetails input {
+  width: 60px;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.serviceDetails input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.serviceDetails input::-webkit-outer-spin-button,
+.serviceDetails input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.serviceDetails input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Disponibilités */
+.availabilityContainer {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.15),
+    inset 0 0 32px rgba(255, 255, 255, 0.05);
+}
+
+.availabilityText {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  padding: 1rem;
+}
+
+.availabilityList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dayRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.dayRow:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(31, 38, 135, 0.1);
+}
+
+.dayName {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.timeRange {
+  color: #FF721C;
+  font-weight: 500;
+}
+
+.closedText {
+  color: #FF4B4B;
+  font-weight: 500;
+}
+
+.clickableText {
+  color: #FF721C;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.clickableText:hover {
+  background: rgba(255, 114, 28, 0.1);
+}
+
+.buttonContainer {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.buttonGroup {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.submitButton {
+  width: auto;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #FF721C 0%, #FF9A5C 100%);
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 3rem auto;
+  display: block;
+  box-shadow: 0 10px 20px rgba(255, 114, 28, 0.2);
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #FF8B44 0%, #FFB285 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(255, 114, 28, 0.3);
+}
+
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 114, 28, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 15px rgba(255, 114, 28, 0.25);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.clickableText {
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clickableText:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Adresse */
+.addressSection {
+  background: transparent;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.addressContainer {
+  background: transparent;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.addressInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: transparent;
+  border-radius: 1rem;
+}
+
+.addressText {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.addressForm {
+  display: grid;
+  gap: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 0;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.9rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--input-border);
+  color: white;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.bottomActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.primaryButton {
+  composes: button;
+  background: var(--accent-gradient);
+  color: white;
+  min-width: 150px;
+}
+
+.primaryButton:hover {
+  background: var(--accent-gradient-reverse);
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondaryButton {
+  composes: button;
+  background: var(--input-bg);
+  color: white;
+  border: 1px solid var(--input-border);
+}
+
+.secondaryButton:hover {
+  border-color: var(--accent-color);
+  background: rgba(255, 114, 28, 0.1);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.closeButton svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #666;
+}
+
+.daySelector, .timeSelector {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dayButton, .timeButton {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.dayButton:hover, .timeButton:hover {
+  background: #f5f5f5;
+}
+
+.dayButton.selected, .timeButton.selected {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.validateButton {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.validateButton:hover {
+  background: var(--primary-dark);
+}
+
+.timeModal {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.timeList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.timeItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1.125rem;
+}
+
+.timeItem:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.timeItem.selected {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.validateButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.validateButton:hover {
+  background-color: var(--primary-dark);
+}
+
+.validateButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Bouton d'ajout */
+.addButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addButton:hover {
+  background-color: var(--primary-dark);
+}
+
+.addIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Boîte d'information */
+.infoBox {
+  background-color: #f8f9fa;
+  border-left: 4px solid #FF721C;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.infoBox p {
+  margin: 0.5rem 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.infoBox ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.infoBox li {
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.infoBox strong {
+  color: #FF721C;
+  font-weight: 600;
+}
+
+/* Champs d'édition */
+.serviceInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4a5568;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.inputGroup label svg {
+  width: 16px;
+  height: 16px;
+  color: #FF721C;
+}
+
+.inputGroup input {
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 100%;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.inputGroup input:focus {
+  border-color: #FF721C;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 114, 28, 0.1);
+}
+
+.inputInfo {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: -0.25rem;
+}
+
+.addServiceCard {
+  flex: 0 0 300px;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.addServiceCard:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
+}
+
+.addServiceContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.addServiceContent svg {
+  width: 40px;
+  height: 40px;
+  color: var(--primary-color);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  color: white;
+  font-size: 0.875rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.formRow {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formRow .formGroup {
+  flex: 1;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.clickableText {
+  color: #FF721C;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.clickableText:hover {
+  color: #FF9A5C;
+  background: rgba(255, 114, 28, 0.1);
+}
+
+.clickableText {
+  color: #FF721C;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.clickableText:hover {
+  color: #FF9A5C;
+}
+
+.introText {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 2rem auto 3rem;
+  max-width: 800px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.15),
+    inset 0 0 32px rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  position: relative;
+  overflow: hidden;
+}
+
+.introText::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  opacity: 0.3;
+  animation: shine 25s linear infinite;
+}
+
+@keyframes shine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.introText p {
+  margin: 0.75rem 0;
+  position: relative;
+}
+
+.introText strong {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.introText em {
+  font-style: normal;
+  color: #FF721C;
+  font-weight: 500;
+}
+
+.addDateButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 114, 28, 0.1);
+  border: 1px dashed rgba(255, 114, 28, 0.3);
+  color: #FF721C;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  width: fit-content;
+  margin: 1rem auto 0;
+}
+
+.addDateButton:hover {
+  background: rgba(255, 114, 28, 0.15);
+  transform: translateY(-1px);
+}
+
+.addDateButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dayInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  color: #FF721C;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.removeButton:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.removeButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+.addressModal {
+  max-width: 500px;
+  width: 90%;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.modalContent {
+  padding: 1.5rem;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.validateButton {
+  width: 100%;
+  padding: 0.75rem;
+  background: #ff6b00;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.validateButton:hover {
+  background: #ff8533;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dayList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.dayItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dayItem:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dayItem.selected {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.addButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.addButton:hover {
+  background-color: #0051b3;
+}
+
+.addIcon {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ff4444;
+  color: white;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.serviceCard:hover .deleteButton {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  background-color: #cc0000;
+  transform: scale(1.1);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modalContent h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modalAddButton, .modalCancelButton {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.modalAddButton {
+  background-color: #0070f3;
+  color: white;
+}
+
+.modalAddButton:hover {
+  background-color: #0051b3;
+}
+
+.modalAddButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.modalCancelButton {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.modalCancelButton:hover {
+  background-color: #e0e0e0;
+}
+
+.submitButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #0051b3;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iconButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.iconButton:hover {
+  transform: scale(1.1);
+  background-color: #0051b3;
+}
+
+.iconButton.deleteButton {
+  background-color: #ff4444;
+}
+
+.iconButton.deleteButton:hover {
+  background-color: #cc0000;
+}
+
+.cardButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.cardButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.cardButton:not(:disabled) {
+  background-color: #0070f3;
+}
+
+.cardButton:not(:disabled):hover {
+  transform: scale(1.1);
+  background-color: #0051b3;
+}
+
+.cardButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cardButton.cancelButton {
+  background-color: #ff4444;
+}
+
+.cardButton.cancelButton:hover {
+  background-color: #cc0000;
+}
+
+.cardError {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.inlineError {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  animation: fadeInOut 2s ease;
+  pointer-events: none;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -5px);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -5px);
+  }
+}
+
+.bottomMessage {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.businessHoursSection {
+  margin-top: 3rem;
+}
+
+.businessHoursSection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.businessHoursGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.dayCard {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.dayCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.dayHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.closedToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.hoursInputs {
+  display: flex;
+  gap: 1rem;
+}
+
+.timeInput {
+  flex: 1;
+}
+
+.timeInput label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.timeInput input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.timeInput input:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.1);
+}
